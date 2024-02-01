@@ -18,11 +18,20 @@ Project structure:
 ## Dockerfile task notes:
 ```
 1. Working folder inside the container is /code
-2. In Python applications, the file listing all dependencies is called requiements.txt. Treat this in the same way you would treat a package.json file
+2. In Python applications, the file listing all dependencies is called requirements.txt. Treat this in the same way you would treat a package.json file
 3. You may need to look up the command to install dependencies in Python.
 3. You may need to look up the command to start up a Python web app once everything else is ready.
 
 Note: You might need to look up the default port for redis.
+```
+
+## Quick Start
+
+```bash
+# Build in Docker
+docker build .
+# To run the container and go inside via bash
+docker run -it IMAGE_ID bash
 ```
 
 ## Docker-compose task notes:
