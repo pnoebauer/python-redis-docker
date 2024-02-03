@@ -32,6 +32,14 @@ Note: You might need to look up the default port for redis.
 docker build .
 # To run the container and go inside via bash
 docker run -it IMAGE_ID bash
+
+# build image and tag it
+docker build --platform linux/amd64 -t pnoebauer/redis-python-flask-app:1.0 ./app
+
+# push to docker hub
+docker login
+docker push pnoebauer/redis-python-flask-app:1.0
+
 ```
 
 ## Docker-compose task notes:
@@ -42,6 +50,59 @@ docker run -it IMAGE_ID bash
 
 Note: You might need to look up the default port for redis.
 
+```
+
+## Debugging
+
+```bash
+# Show all containers
+docker ps
+
+# Show logs
+docker logs CONTAINER_ID
+
+# Remove container and all its logs
+docker rm CONTAINER_ID
+
+# Live logs
+docker attach CONTAINER_ID
+
+# Show container info
+docker inspect CONTAINER_ID
+
+# Show images
+docker images
+
+# Cleanup unused images
+docker image prune
+
+# Cleanup all images not used by at least one container
+docker image prune -a
+
+# Cleanup all stopped containers
+docker container prune
+
+# Cleanup volumes not used by at least one container
+docker volume prune
+
+# Cleanup everything
+docker system prune
 
 ```
 
+# Play with docker
+https://labs.play-with-docker.com
+
+```bash
+# create volume
+docker volume create myremotevolume
+
+# check volumes
+docker volume ls
+
+# drag docker compose into editor
+docker-compose pull
+
+# run
+docker-compose up
+```
